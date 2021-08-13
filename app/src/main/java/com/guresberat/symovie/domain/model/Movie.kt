@@ -1,4 +1,4 @@
-package com.guresberat.symovie.model
+package com.guresberat.symovie.domain.model
 
 data class Movie(
     val budget: Int,

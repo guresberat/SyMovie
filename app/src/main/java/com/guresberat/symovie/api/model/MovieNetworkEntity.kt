@@ -1,4 +1,4 @@
-package com.guresberat.symovie.api
+package com.guresberat.symovie.api.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
