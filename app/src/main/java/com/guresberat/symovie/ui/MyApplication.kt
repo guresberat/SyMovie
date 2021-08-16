@@ -1,7 +1,9 @@
-package com.guresberat.symovie
+package com.guresberat.symovie.ui
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class MyApplication:Application()
+class MyApplication : Application() {
+
+}
