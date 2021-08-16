@@ -1,8 +1,11 @@
-package com.guresberat.symovie
+package com.guresberat.symovie.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.guresberat.symovie.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
