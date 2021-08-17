@@ -21,7 +21,7 @@ constructor(
         emit(DataState.Loading)
         delay(1000)
         try {
-            val networkMovies = movieRetrofit.get()
+            val networkMovies = movieRetrofit.get("0e1f01f16c3e578a51669cf7ba8e369b")
             val movies = networkMapper.mapFromEntityList(networkMovies)
             for (movie in movies) {
                 movieDao.insert(cacheMapper.mapToEntity(movie))
