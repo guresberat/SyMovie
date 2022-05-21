@@ -1,17 +1,14 @@
 package com.guresberat.symovie.domain.model
 
 data class Movie(
-    val budget: Int,
     val id: Int,
-    val name: String,
+    val originalTitle: String,
     val overview: String,
     val popularity: Double,
+    val backdropPath: String,
     val posterPath: String,
     val releaseDate: String,
-    val revenue: Long,
-    val runtime: Int,
-    val status: String,
-    val tagline: String,
     val title: String,
-    val rating: Double
+    val ratingAverage: Double,
+    val rating: Int
 )

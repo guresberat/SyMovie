@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
 
     @Inject lateinit var mainRepository: MainRepository
 
-    private val TAG: String = "MainActivity"
-
     private val viewModel: MainViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding

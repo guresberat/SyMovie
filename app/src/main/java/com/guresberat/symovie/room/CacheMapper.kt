@@ -10,36 +10,30 @@ constructor() : EntityMapper<MovieCacheEntity, Movie> {
 
     override fun mapFromEntity(entity: MovieCacheEntity): Movie {
         return Movie(
-            budget = entity.budget,
             id = entity.id,
-            name = entity.name,
+            originalTitle = entity.originalTitle,
             overview = entity.overview,
             popularity = entity.popularity,
+            backdropPath = entity.backdropPath,
             posterPath = entity.posterPath,
             releaseDate = entity.releaseDate,
-            revenue = entity.revenue,
-            runtime = entity.runtime,
-            status = entity.status,
-            tagline = entity.tagline,
             title = entity.title,
+            ratingAverage = entity.ratingAverage,
             rating = entity.rating,
         )
     }
 
     override fun mapToEntity(domainModel: Movie): MovieCacheEntity {
         return MovieCacheEntity(
-            budget = domainModel.budget,
             id = domainModel.id,
-            name = domainModel.name,
+            originalTitle = domainModel.originalTitle,
             overview = domainModel.overview,
             popularity = domainModel.popularity,
+            backdropPath = domainModel.backdropPath,
             posterPath = domainModel.posterPath,
             releaseDate = domainModel.releaseDate,
-            revenue = domainModel.revenue,
-            runtime = domainModel.runtime,
-            status = domainModel.status,
-            tagline = domainModel.tagline,
             title = domainModel.title,
+            ratingAverage = domainModel.ratingAverage,
             rating = domainModel.rating,
         )
     }

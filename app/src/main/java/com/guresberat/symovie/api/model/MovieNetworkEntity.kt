@@ -2,7 +2,6 @@ package com.guresberat.symovie.api.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
 data class MovieNetworkEntity(
 
@@ -12,7 +11,7 @@ data class MovieNetworkEntity(
 
     @SerializedName("original_title")
     @Expose
-    val name: String?,
+    val originalTitle: String,
 
     @SerializedName("overview")
     @Expose
@@ -44,5 +43,5 @@ data class MovieNetworkEntity(
 
     @SerializedName("vote_count")
     @Expose
-    val rating: Double,
+    val rating: Int,
 )

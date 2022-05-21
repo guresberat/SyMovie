@@ -3,7 +3,6 @@ package com.guresberat.symovie.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.guresberat.symovie.api.MovieRetrofit
-import com.guresberat.symovie.ui.MyApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
