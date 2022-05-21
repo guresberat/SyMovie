@@ -6,17 +6,17 @@ import com.google.gson.annotations.SerializedName
 data class MovieTopRatedNetworkEntity(
     @SerializedName("page")
     @Expose
-    var page: Int,
+    val page: Int,
 
     @SerializedName("results")
     @Expose
-    var results: List<MovieNetworkEntity>,
+    val results: List<MovieNetworkEntity>,
 
     @SerializedName("total_pages")
     @Expose
-    var total_pages: Int,
+    val total_pages: Int,
 
     @SerializedName("total_results")
     @Expose
-    var total_results: Int,
+    val total_results: Int,
 )

@@ -10,4 +10,5 @@ interface MovieRetrofit {
     suspend fun get(
         @Query("api_key") api_key:String
     ): MovieTopRatedNetworkEntity
+
 }

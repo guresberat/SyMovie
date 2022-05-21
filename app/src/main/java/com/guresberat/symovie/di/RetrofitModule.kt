@@ -38,5 +38,4 @@ object RetrofitModule {
             .build()
             .create(MovieRetrofit::class.java)
     }
-
 }

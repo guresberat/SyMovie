@@ -7,16 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.guresberat.symovie.databinding.ActivityMainBinding
 import com.guresberat.symovie.domain.model.Movie
-import com.guresberat.symovie.repository.MainRepository
 import com.guresberat.symovie.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    @Inject lateinit var mainRepository: MainRepository
 
     private val viewModel: MainViewModel by viewModels()
 
