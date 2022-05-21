@@ -3,6 +3,8 @@ package com.guresberat.symovie.api.util
 import com.guresberat.symovie.api.model.MovieNetworkEntity
 import com.guresberat.symovie.domain.model.Movie
 import com.guresberat.symovie.util.EntityMapper
+import retrofit2.Call
+import retrofit2.Response
 import javax.inject.Inject
 
 class NetworkMapper

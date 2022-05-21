@@ -1,27 +1,26 @@
 package com.guresberat.symovie.ui
 
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
-import com.guresberat.symovie.domain.model.Movie
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.guresberat.symovie.repository.MainRepository
 import com.guresberat.symovie.util.DataState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
+@HiltViewModel
 class MainViewModel
-@ViewModelInject
-constructor(
+@Inject constructor(
     private val mainRepository: MainRepository,
-    @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _dataState: MutableLiveData<DataState<List<Movie>>> = MutableLiveData()
-
-    val dataState: LiveData<DataState<List<Movie>>>
+    val dataState: MutableStateFlow<DataState>
         get() = _dataState
+
+    private val _dataState = MutableStateFlow<DataState>(DataState.Loading)
 
     fun setStateEvent(mainStateEvent: MainStateEvent) {
         viewModelScope.launch {
@@ -43,7 +42,6 @@ constructor(
 
 sealed class MainStateEvent {
     object GetMovieEvents : MainStateEvent()
-
     object None : MainStateEvent()
 }
 

@@ -1,7 +1,9 @@
 package com.guresberat.symovie.util
 
-sealed class DataState<out R> {
-    data class Success<out T>(val data: T) : DataState<T>()
-    data class Error(val exception: Exception) : DataState<Nothing>()
-    object Loading : DataState<Nothing>()
+import com.guresberat.symovie.domain.model.Movie
+
+sealed class DataState{
+    data class Success(val data: List<Movie>) : DataState()
+    data class Error(val exception: Exception) : DataState()
+    object Loading : DataState()
 }

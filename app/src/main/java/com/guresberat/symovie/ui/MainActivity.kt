@@ -4,14 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.guresberat.symovie.databinding.ActivityMainBinding
 import com.guresberat.symovie.domain.model.Movie
+import com.guresberat.symovie.repository.MainRepository
 import com.guresberat.symovie.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject lateinit var mainRepository: MainRepository
 
     private val TAG: String = "MainActivity"
 
@@ -24,27 +29,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
         subscribeObservers()
         viewModel.setStateEvent(MainStateEvent.GetMovieEvents)
     }
 
     private fun subscribeObservers() {
-        viewModel.dataState.observe(this, Observer { dataState ->
-            when (dataState) {
-                is DataState.Success<List<Movie>> -> {
-                    displayProgressBar(false)
-                    appendMovies(dataState.data)
-                }
-                is DataState.Error -> {
-                    displayProgressBar(false)
-                    displayError(dataState.exception.message)
-                }
-                is DataState.Loading -> {
-                    displayProgressBar(true)
+        lifecycleScope.launchWhenCreated {
+            viewModel.dataState.collect {
+                when (it) {
+                    is DataState.Success -> {
+                        displayProgressBar(false)
+                        appendMovies(it.data)
+                    }
+                    is DataState.Error -> {
+                        displayProgressBar(false)
+                        displayError(it.exception.message)
+                    }
+                    is DataState.Loading -> {
+                        displayProgressBar(true)
+                    }
                 }
             }
-        })
+        }
     }
 
     private fun displayError(message: String?) {

@@ -2,28 +2,29 @@ package com.guresberat.symovie.api.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class MovieNetworkEntity(
 
-    @SerializedName("budget")
-    @Expose
-    var budget: Int,
-
     @SerializedName("id")
     @Expose
-    var id: Int,
+    val id: Int,
 
-    @SerializedName("name")
+    @SerializedName("original_title")
     @Expose
-    var name: String,
+    val name: String?,
 
     @SerializedName("overview")
     @Expose
-    var overview: String,
+    val overview: String,
 
     @SerializedName("popularity")
     @Expose
-    var popularity: Double,
+    val popularity: Double,
+
+    @SerializedName("backdrop_path")
+    @Expose
+    val backdropPath: String,
 
     @SerializedName("poster_path")
     @Expose
@@ -33,27 +34,15 @@ data class MovieNetworkEntity(
     @Expose
     val releaseDate: String,
 
-    @SerializedName("revenue")
-    @Expose
-    val revenue: Long,
-
-    @SerializedName("runtime")
-    @Expose
-    val runtime: Int,
-
-    @SerializedName("status")
-    @Expose
-    val status: String,
-
-    @SerializedName("tagline")
-    @Expose
-    val tagline: String,
-
     @SerializedName("title")
     @Expose
     val title: String,
 
     @SerializedName("vote_average")
+    @Expose
+    val ratingAverage: Double,
+
+    @SerializedName("vote_count")
     @Expose
     val rating: Double,
 )
